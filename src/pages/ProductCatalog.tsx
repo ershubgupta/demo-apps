@@ -3,6 +3,7 @@ import { ProductDetail } from "../components/ProductDetail";
 import { ProductFilters } from "../components/ProductFilters";
 import { ProductGrid } from "../components/ProductGrid";
 import { useProducts } from "../hooks/useProducts";
+import { routeHref } from "../routing";
 import type { Product, ProductFilters as ProductFiltersValue } from "../types/product";
 import { SORT_LABELS } from "../utils/productQuery";
 
@@ -28,8 +29,8 @@ export function ProductCatalog() {
           <h1>Product Catalog</h1>
         </div>
         <div className="header-meta">
-          <a href="/">Demo Home</a>
-          <span>Production Debug Demo</span>
+          <a href={routeHref("/")}>Workbench Home</a>
+          <span>Production Debug Lab</span>
           <span>Build: {releaseLabel}</span>
         </div>
       </header>
@@ -37,7 +38,7 @@ export function ProductCatalog() {
       <section className="catalog-panel">
         <div className="catalog-heading">
           <div>
-            <p className="section-label">Demo Store</p>
+            <p className="section-label">Storefront Admin</p>
             <h2>Product Catalog</h2>
           </div>
           <div className="active-sort">Sort: {SORT_LABELS[filters.sort]}</div>

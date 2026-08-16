@@ -1,5 +1,5 @@
 {
-  "name": "production-source-map-debug-demo",
+  "name": "storefront-debug-workbench",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "node scripts/dev-server.mjs",
     "build": "pnpm run build:no-map",
+    "build:pages": "node scripts/build-pages.mjs",
     "build:maps": "node scripts/build-release.mjs public-map",
     "build:hidden-map": "node scripts/build-release.mjs private-map",
     "build:no-map": "node scripts/build-release.mjs no-map",
@@ -15,7 +16,7 @@
     "serve:no-map": "node scripts/serve-release.mjs dist-no-map",
     "serve:map": "node scripts/serve-map-artifacts.mjs release-artifacts/release-map-private",
     "typecheck": "tsc -p tsconfig.json",
-    "lint": "eslint src/main.tsx src/App.tsx src/api/products.ts src/cart/api/cartApi.ts src/cart/hooks/useCoupon.ts src/cart/types.ts src/cart/utils/buildCouponPayload.ts src/components/ProductCard.tsx src/components/ProductDetail.tsx src/components/ProductFilters.tsx src/components/ProductGrid.tsx src/hooks/useProducts.ts src/pages/CartRecorderDemo.tsx src/pages/DemoHome.tsx src/pages/LegacyDemoPage.tsx src/pages/ProductCatalog.tsx src/routes.ts src/types/product.ts src/utils/productQuery.ts scripts/build-release.mjs scripts/dev-server.mjs scripts/mock-products.mjs scripts/serve-map-artifacts.mjs scripts/serve-release.mjs scripts/server-utils.mjs vite.config.ts"
+    "lint": "eslint src/main.tsx src/App.tsx src/api/products.ts src/api/staticProducts.ts src/cart/api/cartApi.ts src/cart/hooks/useCoupon.ts src/cart/types.ts src/cart/utils/buildCouponPayload.ts src/components/ProductCard.tsx src/components/ProductDetail.tsx src/components/ProductFilters.tsx src/components/ProductGrid.tsx src/hooks/useProducts.ts src/pages/CartCouponPage.tsx src/pages/HomePage.tsx src/pages/RouteInfoPage.tsx src/pages/ProductCatalog.tsx src/routes.ts src/routing.ts src/types/product.ts src/utils/productQuery.ts scripts/build-pages.mjs scripts/build-release.mjs scripts/dev-server.mjs scripts/mock-products.mjs scripts/serve-map-artifacts.mjs scripts/serve-release.mjs scripts/server-utils.mjs vite.config.ts"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.1",
