@@ -2,7 +2,7 @@ import { spawnSync } from "node:child_process";
 import { copyFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-const outDir = "dist";
+const outDir = process.env.PAGES_OUT_DIR ?? "docs";
 const basePath = process.env.PAGES_BASE_PATH ?? "/demo-apps/";
 
 const result = spawnSync(
