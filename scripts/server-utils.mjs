@@ -94,6 +94,12 @@ export async function serveStaticFile(request, response, rootDirectory, options 
 
   let candidate = filePath;
   if (!existsSync(candidate)) {
+    if (extname(requestedPath)) {
+      response.writeHead(404);
+      response.end("Not found");
+      return;
+    }
+
     candidate = resolve(join(absoluteRoot, "index.html"));
   }
 
@@ -101,6 +107,12 @@ export async function serveStaticFile(request, response, rootDirectory, options 
     const fileStat = await stat(candidate);
 
     if (!fileStat.isFile()) {
+      if (extname(requestedPath)) {
+        response.writeHead(404);
+        response.end("Not found");
+        return;
+      }
+
       candidate = resolve(join(absoluteRoot, "index.html"));
     }
 
