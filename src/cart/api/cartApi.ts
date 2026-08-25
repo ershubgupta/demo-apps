@@ -12,7 +12,10 @@ function isCouponResponse(value: unknown): value is CouponResponse {
     typeof value === "object" &&
     value !== null &&
     "couponCode" in value &&
-    "discountRate" in value
+    "discountRate" in value &&
+    typeof value.discountRate === "number" &&
+    value.discountRate >= 0 &&
+    value.discountRate <= 1
   );
 }
 
