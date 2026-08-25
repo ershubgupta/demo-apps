@@ -4,6 +4,7 @@ import { routeHref } from "../routing";
 
 type CartProduct = {
   category: string;
+  deliveryNote: string;
   description: string;
   id: string;
   imageUrl: string;
@@ -25,6 +26,7 @@ const products: CartProduct[] = [
     reviewCount: 1284,
     imageUrl:
       "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
+    deliveryNote: "Ships tomorrow from the nearest fulfillment center.",
     description:
       "Bluetooth over-ear headphones with active noise cancellation, 30-hour battery life, and quick USB-C charging.",
   },
@@ -37,6 +39,7 @@ const products: CartProduct[] = [
     reviewCount: 812,
     imageUrl:
       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
+    deliveryNote: "Arrives in two business days with tracked delivery.",
     description:
       "Durable 28L backpack with a padded laptop sleeve and weather-resistant finish.",
   },
@@ -49,6 +52,7 @@ const products: CartProduct[] = [
     reviewCount: 943,
     imageUrl:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80",
+    deliveryNote: "Ships today from the wearables fulfillment center.",
     description:
       "Daily activity tracking, heart-rate monitoring, and phone notifications in a slim case.",
   },
@@ -61,6 +65,7 @@ const products: CartProduct[] = [
     reviewCount: 618,
     imageUrl:
       "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=900&q=80",
+    deliveryNote: "Arrives tomorrow with premium handling.",
     description:
       "Minimal analog watch with a polished steel case and soft leather strap.",
   },
@@ -73,6 +78,7 @@ const products: CartProduct[] = [
     reviewCount: 771,
     imageUrl:
       "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=900&q=80",
+    deliveryNote: "Ships tomorrow from the nearest fulfillment center.",
     description:
       "Water-resistant chronograph watch with luminous markers and a textured dial.",
   },
@@ -85,6 +91,7 @@ const products: CartProduct[] = [
     reviewCount: 489,
     imageUrl:
       "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=900&q=80",
+    deliveryNote: "Arrives in two business days after bracelet sizing check.",
     description:
       "Premium hybrid watch with activity tracking and a stainless steel link bracelet.",
   },
@@ -97,6 +104,7 @@ const products: CartProduct[] = [
     reviewCount: 677,
     imageUrl:
       "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80",
+    deliveryNote: "Ships tomorrow from the audio fulfillment center.",
     description:
       "Compact speaker with room-filling sound, water resistance, and a 12-hour battery.",
   },
@@ -109,6 +117,7 @@ const products: CartProduct[] = [
     reviewCount: 534,
     imageUrl:
       "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80",
+    deliveryNote: "Arrives in three business days with standard delivery.",
     description:
       "Dimmable LED desk lamp with warm and cool light modes for focused work.",
   },
@@ -486,7 +495,7 @@ function CartView({
           <div>
             <p>{cart.product.category}</p>
             <h2>{cart.product.name}</h2>
-            <span>Ships tomorrow from the nearest fulfillment center.</span>
+            <span>{cart.product.deliveryNote}</span>
             <strong>{formatPrice(cart.product.price)}</strong>
           </div>
           <div className="legacy-quantity-control">
