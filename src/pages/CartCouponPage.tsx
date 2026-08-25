@@ -147,6 +147,10 @@ function getInitialCartState() {
   };
 }
 
+function calculateSubtotal(product: CartProduct | null, quantity: number) {
+  return product ? product.price * quantity : 0;
+}
+
 export function CartCouponPage() {
   const [step, setStep] = useState<CartStep>("products");
   const [searchQuery, setSearchQuery] = useState("");
@@ -166,7 +170,7 @@ export function CartCouponPage() {
     );
   }, [searchQuery]);
 
-  const subtotal = cart.product ? cart.product.price * cart.quantity : 0;
+  const subtotal = calculateSubtotal(cart.product, cart.quantity);
   const discountAmount = subtotal * cart.discountRate;
   const total = subtotal - discountAmount;
 
