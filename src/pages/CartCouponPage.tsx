@@ -7,6 +7,7 @@ type CartProduct = {
   category: string;
   deliveryNote: string;
   description: string;
+  returnWindowDays: number;
   id: string;
   imageUrl: string;
   name: string;
@@ -32,6 +33,7 @@ const products: CartProduct[] = [
     deliveryNote: "Ships tomorrow from the nearest fulfillment center.",
     description:
       "Bluetooth over-ear headphones with active noise cancellation, 30-hour battery life, and quick USB-C charging.",
+    returnWindowDays: 14,
   },
   {
     id: "travel-backpack",
@@ -45,6 +47,7 @@ const products: CartProduct[] = [
     deliveryNote: "Arrives in two business days with tracked delivery.",
     description:
       "Durable 28L backpack with a padded laptop sleeve and weather-resistant finish.",
+    returnWindowDays: 30,
   },
   {
     id: "smart-watch",
@@ -58,6 +61,7 @@ const products: CartProduct[] = [
     deliveryNote: "Ships today from the wearables fulfillment center.",
     description:
       "Daily activity tracking, heart-rate monitoring, and phone notifications in a slim case.",
+    returnWindowDays: 14,
   },
   {
     id: "classic-leather-watch",
@@ -71,6 +75,7 @@ const products: CartProduct[] = [
     deliveryNote: "Arrives tomorrow with premium handling.",
     description:
       "Minimal analog watch with a polished steel case and soft leather strap.",
+    returnWindowDays: 30,
   },
   {
     id: "sport-chronograph-watch",
@@ -84,6 +89,7 @@ const products: CartProduct[] = [
     deliveryNote: "Ships tomorrow from the nearest fulfillment center.",
     description:
       "Water-resistant chronograph watch with luminous markers and a textured dial.",
+    returnWindowDays: 14,
   },
   {
     id: "hybrid-metal-watch",
@@ -97,6 +103,7 @@ const products: CartProduct[] = [
     deliveryNote: "Arrives in two business days after bracelet sizing check.",
     description:
       "Premium hybrid watch with activity tracking and a stainless steel link bracelet.",
+    returnWindowDays: 30,
   },
   {
     id: "wireless-speaker",
@@ -110,6 +117,7 @@ const products: CartProduct[] = [
     deliveryNote: "Ships tomorrow from the audio fulfillment center.",
     description:
       "Compact speaker with room-filling sound, water resistance, and a 12-hour battery.",
+    returnWindowDays: 14,
   },
   {
     id: "desk-lamp",
@@ -123,6 +131,7 @@ const products: CartProduct[] = [
     deliveryNote: "Arrives in three business days with standard delivery.",
     description:
       "Dimmable LED desk lamp with warm and cool light modes for focused work.",
+    returnWindowDays: 30,
   },
 ];
 
@@ -431,6 +440,7 @@ function ProductDetailView({
         </div>
         <strong>{formatPrice(product.price)}</strong>
         <p>{product.description}</p>
+        <p>{product.returnWindowDays}-day returns available.</p>
         <button
           type="button"
           className="legacy-button legacy-button-primary"
