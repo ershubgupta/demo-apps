@@ -440,7 +440,9 @@ function ProductDetailView({
         </div>
         <strong>{formatPrice(product.price)}</strong>
         <p>{product.description}</p>
-        <p>{product.returnWindowDays}-day returns available.</p>
+        <p className="legacy-detail-note">
+          {product.returnWindowDays}-day returns available.
+        </p>
         <button
           type="button"
           className="legacy-button legacy-button-primary"

@@ -751,6 +751,11 @@ code {
   margin: 0;
 }
 
+.legacy-detail-note {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .legacy-empty-cart {
   padding: 32px;
   text-align: center;
