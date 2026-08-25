@@ -203,11 +203,9 @@ export function CartCouponPage() {
 
       setCart((currentCart) => ({
         ...currentCart,
-        appliedCoupon: currentCart.appliedCoupon ?? response.couponCode,
+        appliedCoupon: response.couponCode,
         couponCode: enteredCoupon,
-        discountRate: currentCart.appliedCoupon
-          ? currentCart.discountRate
-          : response.discountRate,
+        discountRate: response.discountRate,
         lastAppliedCoupon: response.couponCode,
       }));
     } catch {
