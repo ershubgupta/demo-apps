@@ -177,6 +177,7 @@ export function CartCouponPage() {
   const subtotal = calculateSubtotal(cart.product, cart.quantity);
   const discountAmount = subtotal * cart.discountRate;
   const total = calculateTotal(subtotal, discountAmount);
+  const canApplyCoupon = cart.couponCode.trim().length > 0 && !isApplying;
 
   function resetCart() {
     setStep("products");
@@ -295,6 +296,7 @@ export function CartCouponPage() {
         {step === "cart" ? (
           <CartView
             cart={cart}
+            canApplyCoupon={canApplyCoupon}
             couponError={couponError}
             discountAmount={discountAmount}
             isApplying={isApplying}
@@ -438,6 +440,7 @@ function ProductDetailView({
 
 function CartView({
   cart,
+  canApplyCoupon,
   couponError,
   discountAmount,
   isApplying,
@@ -450,6 +453,7 @@ function CartView({
   total,
 }: {
   cart: ReturnType<typeof getInitialCartState>;
+  canApplyCoupon: boolean;
   couponError: string | null;
   discountAmount: number;
   isApplying: boolean;
@@ -546,7 +550,7 @@ function CartView({
             type="button"
             className="legacy-button legacy-button-primary"
             data-testid="apply-coupon-button"
-            disabled={isApplying}
+            disabled={!canApplyCoupon}
             onClick={() => {
               void onApplyCoupon();
             }}
