@@ -1,4 +1,5 @@
 import type { CouponPayload, CouponResponse } from "../types";
+import { normalizeCouponCode } from "../utils/buildCouponPayload";
 
 const discountRates: Record<string, number> = {
   SAVE10PERCENT: 0.1,
@@ -30,7 +31,7 @@ export async function applyCouponRequest(payload: CouponPayload): Promise<Coupon
 }
 
 function applyCouponLocally(payload: CouponPayload): CouponResponse {
-  const couponCode = payload.couponCode.trim().toUpperCase();
+  const couponCode = normalizeCouponCode(payload.couponCode);
   const discountRate = discountRates[couponCode];
 
   if (typeof discountRate !== "number") {
