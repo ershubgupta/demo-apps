@@ -622,6 +622,13 @@ code {
   font-weight: 600;
 }
 
+.legacy-products-toolbar small {
+  color: #64748b;
+  display: block;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
 .legacy-search-field {
   max-width: 390px;
   position: relative;
