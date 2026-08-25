@@ -17,6 +17,8 @@ type CartProduct = {
 
 type CartStep = "products" | "detail" | "cart";
 
+type CartState = ReturnType<typeof getInitialCartState>;
+
 const products: CartProduct[] = [
   {
     id: "wireless-headphones",
@@ -449,7 +451,7 @@ function CartView({
   subtotal,
   total,
 }: {
-  cart: ReturnType<typeof getInitialCartState>;
+  cart: CartState;
   canApplyCoupon: boolean;
   couponError: string | null;
   discountAmount: number;
