@@ -362,6 +362,7 @@ function ProductsView({
           <span>
             Search the current catalog and open a product detail page.
           </span>
+          <small>{filteredProducts.length} products available</small>
         </div>
         <div className="legacy-search-field">
           <span aria-hidden="true">Search</span>
