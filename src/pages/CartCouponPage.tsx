@@ -138,6 +138,8 @@ const couponLabels: Record<string, string> = {
   SAVE30: "30% discount",
 };
 
+const promoHint = `Try ${Object.keys(couponLabels).join(", ")}`;
+
 function getInitialCartState() {
   return {
     appliedCoupon: null as string | null,
@@ -536,6 +538,7 @@ function CartView({
       <aside className="legacy-card legacy-order-summary">
         <h2>Order summary</h2>
         <label htmlFor="promo-code">Promo code</label>
+        <p className="legacy-promo-hint">{promoHint}</p>
         <div className="legacy-promo-row">
           <input
             id="promo-code"
