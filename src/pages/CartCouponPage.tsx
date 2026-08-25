@@ -151,6 +151,10 @@ function calculateSubtotal(product: CartProduct | null, quantity: number) {
   return product ? product.price * quantity : 0;
 }
 
+function calculateTotal(subtotal: number, discountAmount: number) {
+  return Math.max(subtotal - discountAmount, 0);
+}
+
 export function CartCouponPage() {
   const [step, setStep] = useState<CartStep>("products");
   const [searchQuery, setSearchQuery] = useState("");
@@ -172,7 +176,7 @@ export function CartCouponPage() {
 
   const subtotal = calculateSubtotal(cart.product, cart.quantity);
   const discountAmount = subtotal * cart.discountRate;
-  const total = subtotal - discountAmount;
+  const total = calculateTotal(subtotal, discountAmount);
 
   function resetCart() {
     setStep("products");
