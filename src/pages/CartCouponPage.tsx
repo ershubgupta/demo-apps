@@ -514,7 +514,7 @@ function CartView({
           <div className="legacy-quantity-control">
             <button
               type="button"
-              aria-label="Decrease Quantity"
+              aria-label={`Decrease quantity for ${cart.product.name}`}
               data-testid="decrease-quantity-button"
               onClick={onDecreaseQuantity}
             >
@@ -525,7 +525,7 @@ function CartView({
             </span>
             <button
               type="button"
-              aria-label="Increase Quantity"
+              aria-label={`Increase quantity for ${cart.product.name}`}
               data-testid="increase-quantity-button"
               onClick={onIncreaseQuantity}
             >
