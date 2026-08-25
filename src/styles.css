@@ -831,6 +831,12 @@ code {
   margin-bottom: 8px;
 }
 
+.legacy-promo-hint {
+  color: #64748b;
+  font-size: 13px;
+  margin: -4px 0 10px;
+}
+
 .legacy-promo-row {
   display: grid;
   gap: 8px;
