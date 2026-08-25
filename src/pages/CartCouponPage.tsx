@@ -139,6 +139,7 @@ const couponLabels: Record<string, string> = {
 };
 
 const promoHint = `Try ${Object.keys(couponLabels).join(", ")}`;
+const promoPlaceholder = Object.keys(couponLabels)[0] ?? "SAVE10PERCENT";
 
 function getInitialCartState() {
   return {
@@ -545,7 +546,7 @@ function CartView({
             aria-label="Promo code"
             data-testid="coupon-input"
             onChange={(event) => onCouponChange(event.target.value)}
-            placeholder="SAVE10PERCENT"
+            placeholder={promoPlaceholder}
             value={cart.couponCode}
           />
           <button
