@@ -141,6 +141,10 @@ const couponLabels: Record<string, string> = {
 const promoHint = `Try ${Object.keys(couponLabels).join(", ")}`;
 const promoPlaceholder = Object.keys(couponLabels)[0] ?? "SAVE10PERCENT";
 
+function getCouponLabel(couponCode: string | null) {
+  return couponCode ? (couponLabels[couponCode] ?? "Promo code") : null;
+}
+
 function getInitialCartState() {
   return {
     appliedCoupon: null as string | null,
@@ -561,8 +565,8 @@ function CartView({
             {isApplying ? "Applying" : "Apply"}
           </button>
         </div>
-        {cart.lastAppliedCoupon ? (
-          <p>{couponLabels[cart.lastAppliedCoupon] ?? "Promo code"} applied</p>
+        {getCouponLabel(cart.lastAppliedCoupon) ? (
+          <p>{getCouponLabel(cart.lastAppliedCoupon)} applied</p>
         ) : null}
         {couponError ? (
           <p className="legacy-coupon-error">{couponError}</p>
@@ -576,7 +580,7 @@ function CartView({
           <SummaryRow
             label={
               cart.lastAppliedCoupon
-                ? (couponLabels[cart.lastAppliedCoupon] ?? "Coupon discount")
+                ? (getCouponLabel(cart.lastAppliedCoupon) ?? "Coupon discount")
                 : "Coupon discount"
             }
             testId="cart-discount"
