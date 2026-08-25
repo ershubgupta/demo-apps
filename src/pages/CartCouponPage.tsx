@@ -566,7 +566,7 @@ function CartView({
           </button>
         </div>
         {getCouponLabel(cart.lastAppliedCoupon) ? (
-          <p>{getCouponLabel(cart.lastAppliedCoupon)} applied</p>
+          <p aria-live="polite">{getCouponLabel(cart.lastAppliedCoupon)} applied</p>
         ) : null}
         {couponError ? (
           <p className="legacy-coupon-error">{couponError}</p>
