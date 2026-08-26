@@ -21,9 +21,20 @@ Use this folder for Puppeteer scripts exported from Chrome DevTools Recorder.
    node scripts/recorder/cart-discount-bug.mjs
    ```
 
+For a focused coupon regression test that does not launch a browser, run:
+
+```bash
+pnpm test:cart-coupon
+```
+
+For the automated Bisect pass, use:
+
+```bash
+git bisect run pnpm test:cart-coupon
+```
+
 If Puppeteer reports that Chrome cannot be found, install Puppeteer's supported browser with:
 
 ```bash
 npx puppeteer browsers install
 ```
-
