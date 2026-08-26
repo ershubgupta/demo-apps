@@ -42,6 +42,7 @@ test("applies the fresh coupon response rate to cart totals", () => {
   const discountAmount = nextCart.product.price * nextCart.quantity * nextCart.discountRate;
 
   assert.equal(nextCart.appliedCoupon, "SAVE10PERCENT");
+  assert.equal(nextCart.couponCode, "SAVE10PERCENT");
   assert.equal(nextCart.lastAppliedCoupon, "SAVE10PERCENT");
   assert.equal(nextCart.discountRate, 0.1);
   assert.equal(discountAmount, 200);
