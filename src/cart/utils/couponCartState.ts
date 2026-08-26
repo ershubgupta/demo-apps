@@ -16,7 +16,7 @@ export function applyCouponToCartState<TCart extends CouponCartState>(
     ...currentCart,
     appliedCoupon: response.couponCode,
     couponCode: enteredCoupon,
-    discountRate: response.discountRate,
+    discountRate: currentCart.discountRate,
     lastAppliedCoupon: response.couponCode,
   };
 }

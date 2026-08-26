@@ -7,6 +7,15 @@ const discountRates: Record<string, number> = {
   SAVE30: 0.3
 };
 
+function isCouponResponse(value: unknown): value is CouponResponse {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "couponCode" in value &&
+    "discountRate" in value
+  );
+}
+
 export async function applyCouponRequest(payload: CouponPayload): Promise<CouponResponse> {
   try {
     const response = await fetch("/api/cart/apply-coupon", {
@@ -24,7 +33,13 @@ export async function applyCouponRequest(payload: CouponPayload): Promise<Coupon
       return applyCouponLocally(payload);
     }
 
-    return (await response.json()) as CouponResponse;
+    const couponResponse = await response.json();
+
+    if (!isCouponResponse(couponResponse)) {
+      return applyCouponLocally(payload);
+    }
+
+    return couponResponse;
   } catch {
     return applyCouponLocally(payload);
   }

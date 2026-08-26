@@ -234,6 +234,7 @@ export function CartCouponPage() {
         {
           appliedCoupon: cart.appliedCoupon,
           cartId: cart.cartId,
+          discountRate: cart.discountRate,
         },
         enteredCoupon
       );

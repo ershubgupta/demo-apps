@@ -7,6 +7,8 @@ export function normalizeCouponCode(couponCode: string) {
 export function buildCouponPayload(cart: CouponCartState, enteredCoupon: string): CouponPayload {
   return {
     cartId: cart.cartId,
-    couponCode: normalizeCouponCode(enteredCoupon)
+    couponCode: normalizeCouponCode(enteredCoupon),
+    currentDiscountRate: cart.discountRate,
+    previousCouponCode: cart.appliedCoupon
   };
 }
