@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useCoupon } from "../cart/hooks/useCoupon";
+import { applyCouponToCartState } from "../cart/utils/couponCartState";
 import { routeHref } from "../routing";
 
 type CartProduct = {
@@ -219,13 +220,9 @@ export function CartCouponPage() {
         enteredCoupon
       );
 
-      setCart((currentCart) => ({
-        ...currentCart,
-        appliedCoupon: response.couponCode,
-        couponCode: enteredCoupon,
-        discountRate: response.discountRate,
-        lastAppliedCoupon: response.couponCode,
-      }));
+      setCart((currentCart) =>
+        applyCouponToCartState(currentCart, enteredCoupon, response)
+      );
     } catch {
       setCart((currentCart) => ({
         ...currentCart,
