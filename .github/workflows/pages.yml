@@ -52,6 +52,11 @@ jobs:
           path: release-artifacts/release-map-pages
           retention-days: 30
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
